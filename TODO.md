@@ -35,6 +35,18 @@ Tracked work items for the multi-agent framework product layer (`product/`).
 
 ---
 
+## Use Case Tests
+
+End-to-end tests for each example pipeline using mocked LLM responses (no real API calls).
+
+- [ ] **Customer support** — triage routes billing query to cs-billing; triage routes tech query to cs-tech; `lookup_order` and `check_account` tools called with correct args; `create_ticket` fires on escalation.
+- [ ] **Research assistant** — coordinator hands off to researcher; researcher calls `search_web` at least twice; `save_note` persists notes; analyst calls `get_notes` and produces a report with Executive Summary section.
+- [ ] **Content pipeline** — briefer saves a brief via `save_content('brief', ...)`; writer retrieves it and saves a draft; editor retrieves draft and saves final; `estimate_reading_time` called on final content.
+- [ ] **Code review** — security reviewer runs `scan_for_vulnerabilities` on sample code containing SQL injection and logs at least one CRITICAL finding; quality reviewer runs `measure_complexity`; coordinator calls `get_findings` and emits a BLOCK verdict.
+- [ ] **Sales pipeline** — high-score lead (confirmed budget, senior title) flows through all three stages and produces an outreach email + objection prep in the CRM; low-score lead is rejected at qualification and does not reach the outreach writer.
+
+---
+
 ## Infrastructure
 
 - [ ] Docker Compose setup — FastAPI + SQLite for local dev, swap to Postgres for production.

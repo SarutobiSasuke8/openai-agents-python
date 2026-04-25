@@ -129,6 +129,7 @@ convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
 "examples/**/*.py" = ["E501"]
+"product/examples/**/*.py" = ["E501"]
 
 [tool.mypy]
 strict = true

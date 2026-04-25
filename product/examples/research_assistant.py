@@ -159,7 +159,7 @@ _AGENTS: list[AgentDefCreate] = [
             "4. Provide a concise summary of what you found with sources cited.\n\n"
             "Be systematic. Search at least twice with different query angles before concluding."
         ),
-        model="gpt-4o-mini",
+        model=settings.default_model_fast,
         tools=["search_web", "fetch_article", "save_note"],
         handoffs=[],
         config=AgentConfig(max_turns=12),
@@ -178,7 +178,7 @@ _AGENTS: list[AgentDefCreate] = [
             "   and Recommended Next Steps.\n\n"
             "Be analytical and specific. Cite sources where relevant."
         ),
-        model="gpt-4o",
+        model=settings.default_model,
         tools=["get_notes"],
         handoffs=[],
         config=AgentConfig(max_turns=6),
@@ -194,7 +194,7 @@ _AGENTS: list[AgentDefCreate] = [
             "Do not attempt to research or analyse yourself — delegate to specialists.\n"
             "Your role is to orchestrate and ensure the final report is comprehensive."
         ),
-        model="gpt-4o-mini",
+        model=settings.default_model_fast,
         tools=[],
         handoffs=[
             HandoffConfig(

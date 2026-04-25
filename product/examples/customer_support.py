@@ -132,7 +132,7 @@ _AGENTS: list[AgentDefCreate] = [
             "Always look up their order or account before suggesting a solution. "
             "Be empathetic and concise. Support hours: {support_hours}."
         ),
-        model="gpt-4o-mini",
+        model=settings.default_model_fast,
         tools=["lookup_order", "check_account", "create_ticket", "get_current_datetime"],
         handoffs=[],
         config=AgentConfig(
@@ -152,7 +152,7 @@ _AGENTS: list[AgentDefCreate] = [
             "Always ask for the user's browser/OS if they report a UI issue. "
             "If the problem is a confirmed bug, create a ticket. Support hours: {support_hours}."
         ),
-        model="gpt-4o-mini",
+        model=settings.default_model_fast,
         tools=["create_ticket", "get_current_datetime"],
         handoffs=[],
         config=AgentConfig(
@@ -174,7 +174,7 @@ _AGENTS: list[AgentDefCreate] = [
             "- Technical bugs, errors, app problems → tech support\n"
             "Do not attempt to resolve billing or technical issues yourself."
         ),
-        model="gpt-4o-mini",
+        model=settings.default_model_fast,
         tools=[],
         handoffs=[
             HandoffConfig(

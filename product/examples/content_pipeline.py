@@ -108,7 +108,7 @@ _AGENTS: list[AgentDefCreate] = [
             "4. Report the word count using word_count.\n\n"
             "Do not edit or critique — just write the draft as specified."
         ),
-        model="gpt-4o",
+        model=settings.default_model,
         tools=["get_content", "save_content", "word_count"],
         handoffs=[],
         config=AgentConfig(
@@ -136,7 +136,7 @@ _AGENTS: list[AgentDefCreate] = [
             "4. Provide a brief editor's note (2–3 sentences) explaining your main changes.\n"
             "5. Report the reading time with estimate_reading_time on the final content."
         ),
-        model="gpt-4o",
+        model=settings.default_model,
         tools=["get_content", "save_content", "estimate_reading_time"],
         handoffs=[],
         config=AgentConfig(
@@ -169,7 +169,7 @@ _AGENTS: list[AgentDefCreate] = [
             "4. After the writer is done, hand off to the editor to polish it.\n\n"
             "Do not write the content yourself — only produce the brief."
         ),
-        model="gpt-4o-mini",
+        model=settings.default_model_fast,
         tools=["save_content"],
         handoffs=[
             HandoffConfig(
